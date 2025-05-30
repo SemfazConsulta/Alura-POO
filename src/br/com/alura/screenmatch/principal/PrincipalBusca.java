@@ -7,6 +7,7 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -43,6 +44,11 @@ public class PrincipalBusca {
             Titulo meuTitulo =  new Titulo(meuTituloOmd);
             System.out.println("Titulo ja convertido");
             System.out.println(meuTitulo);
+
+            FileWriter escrita = new FileWriter("filmes.txt");
+            escrita.write(meuTitulo.toString());
+            escrita.close();
+
         } catch (NumberFormatException e){
             System.out.print("Aconteceu um erro: ");
             System.out.println(e.getMessage());
